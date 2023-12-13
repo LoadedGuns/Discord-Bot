@@ -1,0 +1,17 @@
+    if (userInputText == "!users"){
+        message.guild.members.fetch().then(
+            (value) => {
+                // console.log(value);
+                value.forEach(user => {
+                    console.log("User ID " + user.user.id);
+                    console.log(user.joinedTimestamp);
+                    let date = new Date(user.joinedTimestamp);
+                    message.reply(user.user.tag + " joined " + date.toString());
+                });
+            }, (error) => {
+                console.log(error);
+                }
+        );
+    }
+
+    
